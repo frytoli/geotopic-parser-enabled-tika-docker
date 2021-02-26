@@ -1,30 +1,30 @@
 # Dockerized GeoTopicParser-Enabled Apache Tika Server
 
-Container-ized [Lucene Geo-Gazetteer](https://github.com/chrismattmann/lucene-geo-gazetteer) and [GeoTopicParser](https://cwiki.apache.org/confluence/display/tika/GeoTopicParser)-Enabled [Apache Tika](https://tika.apache.org/) Server.
+Container-ized [GeoTopicParser](https://cwiki.apache.org/confluence/display/tika/GeoTopicParser)-Enabled [Apache Tika](https://tika.apache.org/) Server with [Lucene Geo-Gazetteer](https://github.com/chrismattmann/lucene-geo-gazetteer).
 
 ## Pull and Run
 I recommend this method -- the build takes a minute. This installs the latest stable version of Apache Tika, version 1.25.
 ### Pull
 ```
-docker pull frytoli/gtp-tika:latest
+docker pull fryto/gtp-tika:latest
 ```
 
 ### Run
 Run with just the Tika Server accessible by host:
 ```
-docker run -d -p 127.0.0.1:9998:9998 frytoli/gtp-tika:latest
+docker run -d -p 127.0.0.1:9998:9998 fryto/gtp-tika:latest
 ```
 
 Run with both the Tika Server and Lucene Geo-Gazetteer Server accessible by host:
 ```
-docker run -d -p 127.0.0.1:9998:9998 -p 127.0.0.1:8765:8765 frytoli/gtp-tika:latest
+docker run -d -p 127.0.0.1:9998:9998 -p 127.0.0.1:8765:8765 fryto/gtp-tika:latest
 ```
 
 ## Build and Run
 ### Build
 Build with the default version 1.25 of the Apache Tika Server:
 ```
-docker build . --build-arg --tag gtp-tika
+docker build . --tag gtp-tika
 ```
 
 There is an optional build argument "tika_version" that defaults to "1.25". This can be changed to specify the desired version of the Apache Tika Server.
