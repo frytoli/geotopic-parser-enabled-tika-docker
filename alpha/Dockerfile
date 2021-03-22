@@ -1,6 +1,5 @@
 FROM maven:3-jdk-8
 
-ARG tika_version=2.0.0
 ENV TIKA_VERSION=$tika_version
 
 # Update, install requirements
