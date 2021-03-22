@@ -3,33 +3,52 @@
 Container-ized [GeoTopicParser](https://cwiki.apache.org/confluence/display/tika/GeoTopicParser)-Enabled [Apache Tika](https://tika.apache.org/) Server with [Lucene Geo-Gazetteer](https://github.com/chrismattmann/lucene-geo-gazetteer).
 
 ## Pull and Run
-I recommend this method -- the build takes a minute. This installs the latest stable version of Apache Tika, version 1.25.
+I recommend this method -- building takes a bit.
 ### Pull
+Pull the latest stable version of Apache Tika, version 1.25:
 ```
 docker pull fryto/gtp-tika:latest
 ```
+or
+```
+docker pull fryto/gtp-tika:1.25
+```
+
+Pull the alpha version of Apache Tika, version 2.0.0:
+```
+docker pull fryto/gtp-tika:alpha
+```
+or
+```
+docker pull fryto/gtp-tika:2.0
+```
 
 ### Run
-Run with just the Tika Server accessible by host:
+Run with just the Tika Server accessible by host (using latest image as example):
 ```
 docker run -d -p 127.0.0.1:9998:9998 fryto/gtp-tika:latest
 ```
 
-Run with both the Tika Server and Lucene Geo-Gazetteer Server accessible by host:
+Run with both the Tika Server and Lucene Geo-Gazetteer Server accessible by host (using latest image as example):
 ```
 docker run -d -p 127.0.0.1:9998:9998 -p 127.0.0.1:8765:8765 fryto/gtp-tika:latest
 ```
 
 ## Build and Run
 ### Build
-Build with the default version 1.25 of the Apache Tika Server:
+Build the latest stable version (1.25) of the Apache Tika Server:
 ```
-docker build . --tag gtp-tika
+docker build latest/ --tag gtp-tika
 ```
 
-There is an optional build argument "tika_version" that defaults to "1.25". This can be changed to specify the desired version of the Apache Tika Server.
+Within the latest stable version build, there is an optional build argument "tika_version" that defaults to "1.25". This can be changed to specify the older versions of the Apache Tika Server.
 ```
-docker build . --build-arg "tika_version=1.22" --tag gtp-tika
+docker build latest/ --build-arg "tika_version=1.22" --tag gtp-tika
+```
+
+Build the alpha version (2.0.0) of the Apache Tika Server:
+```
+docker build alpha/ --tag gtp-tika
 ```
 
 ### Run
