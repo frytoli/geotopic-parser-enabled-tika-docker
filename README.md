@@ -2,6 +2,8 @@
 
 Container-ized [GeoTopicParser](https://cwiki.apache.org/confluence/display/tika/GeoTopicParser)-Enabled [Apache Tika](https://tika.apache.org/) Server with [Lucene Geo-Gazetteer](https://github.com/chrismattmann/lucene-geo-gazetteer).
 
+*Note that the Alpha Version is not working*
+
 ## Pull and Run
 I recommend this method -- building takes a bit.
 ### Pull

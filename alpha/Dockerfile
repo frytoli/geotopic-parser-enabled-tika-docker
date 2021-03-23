@@ -21,9 +21,9 @@ RUN wget http://download.geonames.org/export/dump/allCountries.zip && \
 # Create a geoIndex with allCountries
 RUN /lucene-geo-gazetteer/src/main/bin/lucene-geo-gazetteer -i geoIndex -b allCountries.txt
 
-# Download Apache Tika Server v 1.25
+# Download Apache Tika Server v 2.0.0
 RUN mkdir /TIKA && \
-    wget https://www.apache.org/dyn/closer.cgi/tika/tika-server-classic-2.0.0-ALPHA.jar -P /TIKA/
+    wget https://downloads.apache.org/tika/tika-server-classic-2.0.0-ALPHA.jar -P /TIKA/
 
 # Download NER model
 RUN mkdir -p /TIKA/ner-model/org/apache/tika/parser/geo/topic && \
