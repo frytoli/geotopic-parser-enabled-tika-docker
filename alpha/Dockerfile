@@ -1,7 +1,5 @@
 FROM maven:3-jdk-8
 
-ENV TIKA_VERSION=$tika_version
-
 # Update, install requirements
 RUN apt-get update && \
     apt-get install -y \
@@ -23,7 +21,7 @@ RUN /lucene-geo-gazetteer/src/main/bin/lucene-geo-gazetteer -i geoIndex -b allCo
 
 # Download Apache Tika Server v 2.0.0
 RUN mkdir /TIKA && \
-    wget https://downloads.apache.org/tika/tika-server-classic-2.0.0-ALPHA.jar -P /TIKA/
+    wget https://archive.apache.org/dist/tika/tika-server-classic-2.0.0-ALPHA.jar -P /TIKA/
 
 # Download NER model
 RUN mkdir -p /TIKA/ner-model/org/apache/tika/parser/geo/topic && \
